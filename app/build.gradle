@@ -25,8 +25,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs/classes.jar')
-    implementation files('libs/gson-2.7.jar')
-    implementation files('libs/httpclient-4.5.jar')
-    implementation files('libs/httpcore-4.4.1.jar')
     implementation files('libs/libammsdk.jar')
 }
