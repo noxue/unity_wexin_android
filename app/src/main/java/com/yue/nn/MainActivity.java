@@ -74,3 +74,4 @@ public class MainActivity extends UnityPlayerActivity {
         return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
     }
 }
+
