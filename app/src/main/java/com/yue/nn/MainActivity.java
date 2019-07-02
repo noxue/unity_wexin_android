@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.sdk.modelmsg.WXTextObject;
 import com.yue.nn.wxapi.AppConst;
 import com.yue.nn.wxapi.WXEntryActivity;
 import com.unity3d.player.UnityPlayerActivity;
@@ -49,7 +50,24 @@ public class MainActivity extends UnityPlayerActivity {
         req.transaction = buildTransaction("img");
         req.message = msg;
         req.scene = SendMessageToWX.Req.WXSceneSession;
-        boolean issend = WXEntryActivity.api.sendReq(req);
+        WXEntryActivity.api.sendReq(req);
+    }
+
+    public void shareText(String text) {
+        WXTextObject textObj = new WXTextObject();
+        textObj.text = text;
+
+        //用 WXTextObject 对象初始化一个 WXMediaMessage 对象
+        WXMediaMessage msg = new WXMediaMessage();
+        msg.mediaObject = textObj;
+        msg.description = text;
+
+        // 封装发送信息
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = buildTransaction("text");
+        req.message = msg;
+        req.scene = SendMessageToWX.Req.WXSceneSession;
+        WXEntryActivity.api.sendReq(req);
     }
 
     private String buildTransaction(final String type) {
